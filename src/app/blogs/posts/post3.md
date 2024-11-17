@@ -1,6 +1,7 @@
 ---
-title: "markdownの書き方っていろんなとこで使われるよね"
+title: "markdownの書き方"
 date: "2024-11-16"
+description: "頻繁に使われそうな書き方の一覧"
 ---
 
 ---

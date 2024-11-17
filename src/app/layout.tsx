@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <header>
         <nav>
-          <Link href="/">田中のブログ</Link>
+          <Link href="/">Nextjs-tutoblog</Link>
         </nav>
         </header>
         <footer>
