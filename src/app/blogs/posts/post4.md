@@ -2,6 +2,7 @@
 title: "コードメモ"
 date: "2024-11-17"
 description: "検索したコードまとめ"
+thumbnail: "/images/thumbnails/nextjs.webp"
 ---
 
 ■dangerouslySetInnerHTMLとは  

@@ -2,4 +2,5 @@
 title: "昇降順確認用"
 date: "2024-11-15"
 description: "post5にて真ん中の日付を指定し並び替えの確認をしてます"
+thumbnail: "/images/thumbnails/nextfuu.jpeg"
 ---

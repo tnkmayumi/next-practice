@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
+import Image from "next/image";
 
 
 
@@ -18,8 +19,17 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
   const contentHtml = processedContent.toString();
 
   return (
-    <div className="bg-white px-6 py-32 lg:px-8">
+    <div className="bg-white px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-3xl text-base leadling-7 text-gray-700">
+        {data.thumbnail && (
+          <Image
+          src={data.thumbnail}
+          alt={data.title}
+          width={800}
+          height={400}
+          style={{marginBottom: "20px", objectFit: "cover" }}
+          />
+        )}
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           {data.title}
         </h1>

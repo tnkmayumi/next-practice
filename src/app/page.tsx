@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function Home() {
   const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
@@ -16,6 +17,7 @@ export default async function Home() {
       return {
         slug: fileName.replace(/\.md$/, ""),
         frontmatter: data,
+        thumbnail: data.thumbnail,
       };
     })
   )
@@ -36,7 +38,17 @@ export default async function Home() {
                 className="flex max-w-xl flex-col items-start justify-between"
               >
                 <div className="group relative">
-                  <div className="flex items-center gap-x-4 text-xs">
+                  <div className="items-center gap-x-4 text-xs">
+                  <Link 
+                      href={`/blogs/${post.slug}`}>
+                      <Image
+                      src={post.thumbnail}
+                      alt={post.frontmatter.title}
+                      width={300}
+                      height={200}
+                      style={{objectFit: "cover" }}
+                      />
+                  </Link>
                     <div className="text-gray-500">
                       {post.frontmatter.date}
                     </div>
