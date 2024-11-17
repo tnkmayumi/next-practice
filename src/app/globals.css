@@ -14,18 +14,13 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 /* navタグのスタイリング */
 nav {
   border-bottom: 1px solid silver;
   padding: 16px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 nav > a {
