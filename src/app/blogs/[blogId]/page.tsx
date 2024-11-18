@@ -36,6 +36,7 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
         <p className="mt-2 text-1xl">
           {data.date}
         </p>
+        {/* <p>タグ: {data.tags.join(", ")}</p> */}
         <div
           className="mt-6"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
@@ -44,6 +45,7 @@ export default async function BlogPost({ params }: { params: { blogId: string } 
     </div>
   );
 }
+
 
 // 動的ルート用のパスとデータを生成　だが以下はなくても動く、、、
 

@@ -3,6 +3,7 @@ title: "時間のかかったエラー"
 date: "2024-11-13"
 description: "解消できたものをログとして残す"
 thumbnail: "/images/thumbnails/error.png"
+tags: ["typescript", "nextjs"]
 ---
 
 ## fsを使用する際はパスを適切に指定しないとエラーが起こる

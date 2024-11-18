@@ -3,6 +3,7 @@ title: "Next.jsでmarkdownブログを作成"
 date: "2024-11-14"
 description: "手順を自分なりに箇条書きしていく"
 thumbnail: "/images/thumbnails/edit.jpeg"
+tags: ["typescript", "nextjs"]
 ---
 1.プロジェクトを作成  
 2.ルーティング作成？  

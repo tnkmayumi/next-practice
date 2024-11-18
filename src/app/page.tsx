@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
+// import { useState } from "react";
 
 export default async function Home() {
   const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
@@ -18,16 +19,35 @@ export default async function Home() {
         slug: fileName.replace(/\.md$/, ""),
         frontmatter: data,
         thumbnail: data.thumbnail,
+        // tags: data.tags || [],
       };
     })
   )
   .then((posts) =>
     posts.sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
   );
+
+  // const [searchQuery, setSearchQuery] = useState("");
+  // const filteredPosts = posts.filter(
+  //   (post) =>
+  //     post.frontmatter.title.includes(searchQuery) ||
+  //     post.tags.some((tag) => tag.includes(searchQuery))
+  // );
+
+
+
+  
   
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* <input
+          type="text"
+          placeholder="検索 (タイトル/タグ)"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="mb-6 p-2 border rounded"
+        /> */}
         <div className="mx-auto max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             ブログ記事一覧</h2>

@@ -38,7 +38,7 @@ export default function RootLayout({
         </header>
         {children}
         <footer>
-        <div className="max-w-4xl w-full mx-auto h-36 flex items-center justify-center bg-gray-200">
+        <div className="w-full mx-auto h-36 flex items-center justify-center bg-gray-200">
           <a href="">© sushi wa umai</a>
         </div>
         </footer>
