@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
 import Image from "next/image";
+// import { postItem } from "./lib/types"
 // import { useState } from "react";
 
 export default async function Home() {
