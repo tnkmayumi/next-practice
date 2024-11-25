@@ -27,20 +27,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header>
-        <div className="w-full h-14 flex flex-start items-center pl-4 bg-gray-500">
-        <nav>
-          <Link href="/">Nextjs-tutoblog</Link>
-        </nav>
-        </div>
+          <div className="w-full h-14 flex flex-start items-center pl-4 bg-gray-500">
+            <nav>
+              <Link href="/">Nextjs-tutoblog</Link>
+            </nav>
+          </div>
         </header>
         {children}
         <footer>
-        <div className="w-full mx-auto h-36 flex items-center justify-center bg-gray-200">
-          <a href="">© sushi wa umai</a>
-        </div>
+          <div className="w-full mx-auto h-36 flex items-center justify-center bg-gray-200">
+            <Link href="">© sushi wa umai</Link>
+          </div>
         </footer>
       </body>
     </html>

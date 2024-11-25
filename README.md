@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# マークダウンブログ
 
-## Getting Started
+このプロジェクトは**Next.js**(TypeScript)を使用して構築したマークダウンベースのブログアプリケーションです。
+Markdownファイルを読み込み、ブログ記事として表示する機能を備えています。
 
-First, run the development server:
+## 使用している主な技術
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js 13 (App Router 使用)
+- TypeScript
+- Markdown (remark/remark-html を利用)
+- CSS (tailwind 必要に応じてデザイン調整)
+- Node.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## プロジェクトの概要
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+このブログは以下の特徴を持ちます：
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Markdown ファイルを使用して記事を管理します。
+2. 動的ルーティング機能で記事ごとの専用ページを生成します。
+3. 各記事にはタグやコメント機能を追加できます。(今後余裕があれば追加予定)
+4. 検索やナビゲーション機能を備えたシンプルなデザインです。（今後余裕があれば追加予定）
 
-## Learn More
+## ディレクトリ構成
 
-To learn more about Next.js, take a look at the following resources:
+next-practice/
+├── app/
+│ ├── blogs/
+│ │ ├── [blogId]/
+│ │ │ ├── page.tsx # 動的ルーティング用のページ
+│ │ ├── posts
+│ │ ├──post1.md # Markdown 記事
+│ │ ├──post2.md # Markdown 記事
+│ │ ├──post3.md # Markdown 記事
+│ │ ├──post4.md # Markdown 記事
+│ │ ├──post5.md # Markdown 記事
+│ ├── layout.tsx # ヘッダーやフッター
+│ ├── page.tsx # トップページ
+├── public/ # 静的ファイル
+├── styles/ # CSS スタイル
+├── package.json # プロジェクトの依存関係
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 開発環境の構築方法
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. リポジトリをクローンします。
+   `https://github.com/tnkmayumi/next-practice.git`
+2. 依存関係をインストールします。
+   `npm install`
+3. 環境変数を設定します。
+   プロジェクトルートに`.env.local`ファイルを作成し、必要な設定を記述してください。
+4. 開発サーバーを設定します。
+   `npm run dev`
+5. ブラウザで http://localhost:3000 にアクセスします。
 
-## Deploy on Vercel
+## トラブルシューティング
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 開発サーバーが起動しない場合
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 依存関係が正しくインストールされているか確認してください
+  `npm install`
+- 環境変数が正しく設定されているか確認してください
+
+### Markdown ファイルが表示されない場合
+
+- posts/ ディレクトリに記事(Markdownファイル)が存在しているか確認してください。
+- 記事のフォーマットが正しいか確認してください。
+
+---
+
+この`README`を参考に、プロジェクトのセットアップやトラブルシューティングを進めてください☆

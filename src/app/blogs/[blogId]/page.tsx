@@ -44,7 +44,7 @@ export default async function BlogPost({
         </h1>
         <p className="mt-2 text-1xl">{data.date}</p>
         <div
-          className="mt-6"
+          className="mt-6 leading-relaxed"
           dangerouslySetInnerHTML={{ __html: contentHtml }}
         ></div>
       </div>
