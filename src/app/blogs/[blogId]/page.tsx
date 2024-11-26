@@ -7,28 +7,20 @@ import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
 import Image from "next/image";
 
-type Params = {
-  blogId: string;
-};
-
-export async function generateStaticParams(): Promise<Params[]> {
-  const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
-  const fileNames = fs.readdirSync(postsDirectory);
-
-  return fileNames.map((filename) => ({
-    blogId: filename.replace(/\.md$/, ""),
-  }));
+interface BlogPostProps {
+  params: {
+    blogId: string;
+  };
 }
-
-export default async function BlogPost({ params }: { params: Params }) {
+export default async function BlogPost({ params }: BlogPostProps) {
   const { blogId } = params;
 
-  // const { blogId } = params;
   const filePath = path.join(
     process.cwd(),
     "src/app/blogs/posts",
     `${blogId}.md`,
   );
+
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -63,13 +55,11 @@ export default async function BlogPost({ params }: { params: Params }) {
   );
 }
 
-// 動的ルート用のパスとデータを生成　だが以下はなくても動く、、、
+export async function generateStaticParams() {
+  const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
+  const filenames = fs.readdirSync(postsDirectory);
 
-// export async function generateStaticParams() {
-//   const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
-//   const fileNames = fs.readdirSync(postsDirectory);
-
-//   return fileNames.map((fileName) => ({
-//     blogId: fileName.replace(/\.md$/, ""),
-//   }));
-// }
+  return filenames.map((filename) => ({
+    blogId: filename.replace(/\.md$/, ""),
+  }));
+}
