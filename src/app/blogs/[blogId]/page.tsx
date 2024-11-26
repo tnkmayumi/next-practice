@@ -21,6 +21,10 @@ export default async function BlogPost({ params }: BlogPostProps) {
     `${blogId}.md`,
   );
 
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Blog post not found: ${blogId}`);
+  }
+
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
