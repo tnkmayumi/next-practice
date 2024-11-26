@@ -7,13 +7,20 @@ import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
 import Image from "next/image";
 
-type BlogPostParams = {
-  params: {
-    blogId: string;
-  };
+type Params = {
+  blogId: string;
 };
 
-export default async function BlogPost({ params }: BlogPostParams) {
+export async function generateStaticParams(): Promise<Params[]> {
+  const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  return fileNames.map((filename) => ({
+    blogId: filename.replace(/\.md$/, ""),
+  }));
+}
+
+export default async function BlogPost({ params }: { params: Params }) {
   const { blogId } = params;
 
   // const { blogId } = params;
@@ -58,11 +65,11 @@ export default async function BlogPost({ params }: BlogPostParams) {
 
 // 動的ルート用のパスとデータを生成　だが以下はなくても動く、、、
 
-export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
-  const fileNames = fs.readdirSync(postsDirectory);
+// export async function generateStaticParams() {
+//   const postsDirectory = path.join(process.cwd(), "src/app/blogs/posts");
+//   const fileNames = fs.readdirSync(postsDirectory);
 
-  return fileNames.map((fileName) => ({
-    blogId: fileName.replace(/\.md$/, ""),
-  }));
-}
+//   return fileNames.map((fileName) => ({
+//     blogId: fileName.replace(/\.md$/, ""),
+//   }));
+// }
