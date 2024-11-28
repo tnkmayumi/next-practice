@@ -7,12 +7,13 @@ import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
 import Image from "next/image";
 
-interface BlogPostProps {
-  params: {
-    blogId: string;
-  };
-}
-export default async function BlogPost({ params }: BlogPostProps) {
+// type BlogPostProps = {
+//   params: {
+//     blogId: string;
+//   };
+// };
+
+export default async function BlogPost({ params }) {
   const { blogId } = params;
 
   const filePath = path.join(
