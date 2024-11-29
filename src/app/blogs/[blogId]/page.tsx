@@ -7,11 +7,12 @@ import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
 import Image from "next/image";
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { blogId: string };
-}) {
+export default async function BlogPost(
+  props: {
+    params: Promise<{ blogId: string }>;
+  }
+) {
+  const params = await props.params;
   const { blogId } = params;
 
   const filePath = path.join(
