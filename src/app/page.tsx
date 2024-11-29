@@ -53,7 +53,8 @@ export default async function Home() {
                           alt={post.frontmatter.title}
                           width={300}
                           height={200}
-                          style={{ objectFit: "cover" }}
+                          priority={false}
+                          style={{ marginBottom: "20px", objectFit: "cover" }}
                         />
                       </Link>
                       <div className="text-gray-500">
