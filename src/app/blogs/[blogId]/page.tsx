@@ -7,24 +7,19 @@ import remarkParse from "remark-parse";
 import remarkHtml from "remark-html";
 import Image from "next/image";
 
-// type BlogPostProps = {
-//   params: {
-//     blogId: string;
-//   };
-// };
-
-export default async function BlogPost({ params }) {
-  const { blogId } = params;
+export default async function BlogPost({
+  params,
+}: {
+  params: { blogId: string };
+}) {
+  // 非同期で params.blogId を取得
+  const { blogId } = await params;
 
   const filePath = path.join(
     process.cwd(),
     "src/app/blogs/posts",
     `${blogId}.md`,
   );
-
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Blog post not found: ${blogId}`);
-  }
 
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
