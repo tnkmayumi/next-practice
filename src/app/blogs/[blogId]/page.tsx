@@ -12,8 +12,7 @@ export default async function BlogPost({
 }: {
   params: { blogId: string };
 }) {
-  // 非同期で params.blogId を取得
-  const { blogId } = await params;
+  const { blogId } = params;
 
   const filePath = path.join(
     process.cwd(),
